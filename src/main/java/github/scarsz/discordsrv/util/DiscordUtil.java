@@ -193,7 +193,15 @@ public class DiscordUtil {
      * @return String with markdown escaped
      */
     public static String escapeMarkdown(String text) {
-        return text == null ? "" : text.replace("_", "\\_").replace("*", "\\*").replace("~", "\\~").replace("|", "\\|").replace(">", "\\>").replace("`", "\\`");
+        if(text == null){
+            return "";
+        } else {
+            if(text.startsWith("http")){
+                return text;
+            } else {
+                return text.replace("_", "\\_").replace("*", "\\*").replace("~", "\\~").replace("|", "\\|").replace(">", "\\>").replace("`", "\\`");
+            }
+        }
     }
 
     /**
